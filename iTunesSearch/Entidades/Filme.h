@@ -18,5 +18,6 @@
 @property (nonatomic, strong) NSNumber *preco;
 @property (nonatomic, strong) NSString *pais;
 @property (nonatomic, strong) NSString *artWork;
+@property (nonatomic, strong) NSString *tipo;
 
 @end
