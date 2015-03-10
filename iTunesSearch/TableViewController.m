@@ -57,7 +57,7 @@ iTunesManager *itunes;
     
     [celula.nome setText:filme.nome];
     [celula.preco setText:[filme.preco stringValue]];
-    [celula.tipo setText:@"Filme"];
+    [celula.tipo setText:NSLocalizedString(@"movie", nil)];
     [celula setViewTumb:filme.artWork];
     
     return celula;

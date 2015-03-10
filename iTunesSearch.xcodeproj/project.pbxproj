@@ -17,6 +17,7 @@
 		92C21CE21AAE76930052ABE6 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C21CE01AAE76930052ABE6 /* TableViewCell.xib */; };
 		92C21CE81AAE858E0052ABE6 /* Filme.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CE71AAE858E0052ABE6 /* Filme.m */; };
 		E668D1E21AAF85690043A4ED /* TableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E668D1E41AAF85690043A4ED /* TableView.xib */; };
+		E668D1E91AAF8A0F0043A4ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E668D1EB1AAF8A0F0043A4ED /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,9 @@
 		E668D1E31AAF85690043A4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TableView.xib; sourceTree = "<group>"; };
 		E668D1E51AAF85890043A4ED /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TableView.strings; sourceTree = "<group>"; };
 		E668D1E61AAF87150043A4ED /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TableView.strings; sourceTree = "<group>"; };
+		E668D1EC1AAF8A120043A4ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E668D1ED1AAF8A170043A4ED /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E668D1EE1AAF8A180043A4ED /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 		92C21CA71AAE757A0052ABE6 = {
 			isa = PBXGroup;
 			children = (
+				E668D1EB1AAF8A0F0043A4ED /* Localizable.strings */,
 				92C21CB21AAE757A0052ABE6 /* iTunesSearch */,
 				92C21CCC1AAE757A0052ABE6 /* iTunesSearchTests */,
 				92C21CB11AAE757A0052ABE6 /* Products */,
@@ -215,6 +220,8 @@
 			knownRegions = (
 				en,
 				Base,
+				pt,
+				fr,
 			);
 			mainGroup = 92C21CA71AAE757A0052ABE6;
 			productRefGroup = 92C21CB11AAE757A0052ABE6 /* Products */;
@@ -234,6 +241,7 @@
 			files = (
 				92C21CC11AAE757A0052ABE6 /* Images.xcassets in Resources */,
 				92C21CE21AAE76930052ABE6 /* TableViewCell.xib in Resources */,
+				E668D1E91AAF8A0F0043A4ED /* Localizable.strings in Resources */,
 				E668D1E21AAF85690043A4ED /* TableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +296,16 @@
 				E668D1E61AAF87150043A4ED /* fr */,
 			);
 			name = TableView.xib;
+			sourceTree = "<group>";
+		};
+		E668D1EB1AAF8A0F0043A4ED /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E668D1EC1AAF8A120043A4ED /* en */,
+				E668D1ED1AAF8A170043A4ED /* pt */,
+				E668D1EE1AAF8A180043A4ED /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
