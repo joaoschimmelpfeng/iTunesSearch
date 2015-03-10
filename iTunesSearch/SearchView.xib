@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeh-bA-DXX">
+                    <rect key="frame" x="546" y="8" width="46" height="30"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="346" y="7" width="46" height="30"/>
+                    </variation>
+                </button>
+                <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPa-rD-HSw">
+                    <rect key="frame" x="0.0" y="0.0" width="546" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="0.0" y="35" width="322" height="44"/>
+                    </variation>
+                </searchBar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="UPa-rD-HSw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IzE-hz-vdL"/>
+                <constraint firstItem="xeh-bA-DXX" firstAttribute="leading" secondItem="UPa-rD-HSw" secondAttribute="trailing" constant="24" id="V2v-Xw-mR7"/>
+                <constraint firstItem="xeh-bA-DXX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="lBV-AR-AdC"/>
+                <constraint firstItem="UPa-rD-HSw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="u9c-VK-qk4"/>
+                <constraint firstItem="xeh-bA-DXX" firstAttribute="leading" secondItem="UPa-rD-HSw" secondAttribute="trailing" id="vY1-Go-y8A"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="V2v-Xw-mR7"/>
+                    <exclude reference="lBV-AR-AdC"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="constraints">
+                    <include reference="V2v-Xw-mR7"/>
+                    <include reference="lBV-AR-AdC"/>
+                    <exclude reference="vY1-Go-y8A"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

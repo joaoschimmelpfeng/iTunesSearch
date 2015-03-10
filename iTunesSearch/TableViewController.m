@@ -10,6 +10,7 @@
 #import "TableViewCell.h"
 #import "iTunesManager.h"
 #import "Entidades/Filme.h"
+#import "SearchView.h"
 
 @interface TableViewController () {
     NSArray *midias;
@@ -18,8 +19,8 @@
 @end
 
 @implementation TableViewController
-
-
+@synthesize searchBar1;
+iTunesManager *itunes;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,11 +28,11 @@
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
-    iTunesManager *itunes = [iTunesManager sharedInstance];
-    midias = [itunes buscarMidias:@"Apple"];
+    [searchBar1 setDelegate:self];
     
-#warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
-    self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 15.f)];
+    itunes = [iTunesManager sharedInstance];
+    midias = [itunes buscarMidias:@"Alien"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,13 +57,24 @@
     
     [celula.nome setText:filme.nome];
     [celula.tipo setText:@"Filme"];
+    [celula setViewTumb:filme.artWork];
     
     return celula;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    midias = [itunes buscarMidias:searchBar.text];
+    [self.tableview reloadData];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
 }
 
-
+- (IBAction)clicked:(id)sender
+{
+    midias = [itunes buscarMidias:searchBar1.text];
+    [self.tableview reloadData];
+}
 @end

@@ -56,6 +56,7 @@ static bool isFirstAccess = YES;
         [filme setArtista:[item objectForKey:@"artistName"]];
         [filme setDuracao:[item objectForKey:@"trackTimeMillis"]];
         [filme setGenero:[item objectForKey:@"primaryGenreName"]];
+        [filme setArtWork:[item objectForKey:@"artworkUrl100"]];
         [filme setPais:[item objectForKey:@"country"]];
         [filmes addObject:filme];
     }

@@ -13,10 +13,10 @@
 		92C21CC11AAE757A0052ABE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92C21CC01AAE757A0052ABE6 /* Images.xcassets */; };
 		92C21CD01AAE757A0052ABE6 /* iTunesSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CCF1AAE757A0052ABE6 /* iTunesSearchTests.m */; };
 		92C21CDB1AAE75B30052ABE6 /* iTunesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CDA1AAE75B30052ABE6 /* iTunesManager.m */; };
-		92C21CDD1AAE75DC0052ABE6 /* TableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C21CDC1AAE75DC0052ABE6 /* TableView.xib */; };
 		92C21CE11AAE76930052ABE6 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CDF1AAE76930052ABE6 /* TableViewCell.m */; };
 		92C21CE21AAE76930052ABE6 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C21CE01AAE76930052ABE6 /* TableViewCell.xib */; };
 		92C21CE81AAE858E0052ABE6 /* Filme.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CE71AAE858E0052ABE6 /* Filme.m */; };
+		E668D1E21AAF85690043A4ED /* TableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E668D1E41AAF85690043A4ED /* TableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,12 +43,13 @@
 		92C21CCF1AAE757A0052ABE6 /* iTunesSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesSearchTests.m; sourceTree = "<group>"; };
 		92C21CD91AAE75B30052ABE6 /* iTunesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesManager.h; sourceTree = "<group>"; };
 		92C21CDA1AAE75B30052ABE6 /* iTunesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesManager.m; sourceTree = "<group>"; };
-		92C21CDC1AAE75DC0052ABE6 /* TableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableView.xib; sourceTree = "<group>"; };
 		92C21CDE1AAE76930052ABE6 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		92C21CDF1AAE76930052ABE6 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		92C21CE01AAE76930052ABE6 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		92C21CE61AAE858E0052ABE6 /* Filme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filme.h; path = Entidades/Filme.h; sourceTree = "<group>"; };
 		92C21CE71AAE858E0052ABE6 /* Filme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filme.m; path = Entidades/Filme.m; sourceTree = "<group>"; };
+		E668D1E31AAF85690043A4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TableView.xib; sourceTree = "<group>"; };
+		E668D1E51AAF85890043A4ED /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TableView.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +97,7 @@
 				92C21CB81AAE757A0052ABE6 /* AppDelegate.m */,
 				92C21CBA1AAE757A0052ABE6 /* TableViewController.h */,
 				92C21CBB1AAE757A0052ABE6 /* TableViewController.m */,
-				92C21CDC1AAE75DC0052ABE6 /* TableView.xib */,
+				E668D1E41AAF85690043A4ED /* TableView.xib */,
 				92C21CD91AAE75B30052ABE6 /* iTunesManager.h */,
 				92C21CDA1AAE75B30052ABE6 /* iTunesManager.m */,
 				92C21CC01AAE757A0052ABE6 /* Images.xcassets */,
@@ -232,7 +233,7 @@
 			files = (
 				92C21CC11AAE757A0052ABE6 /* Images.xcassets in Resources */,
 				92C21CE21AAE76930052ABE6 /* TableViewCell.xib in Resources */,
-				92C21CDD1AAE75DC0052ABE6 /* TableView.xib in Resources */,
+				E668D1E21AAF85690043A4ED /* TableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +278,18 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		E668D1E41AAF85690043A4ED /* TableView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E668D1E31AAF85690043A4ED /* Base */,
+				E668D1E51AAF85890043A4ED /* pt */,
+			);
+			name = TableView.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		92C21CD11AAE757A0052ABE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -312,7 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -348,7 +361,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
