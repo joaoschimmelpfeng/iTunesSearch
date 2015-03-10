@@ -50,6 +50,7 @@
 		92C21CE71AAE858E0052ABE6 /* Filme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filme.m; path = Entidades/Filme.m; sourceTree = "<group>"; };
 		E668D1E31AAF85690043A4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TableView.xib; sourceTree = "<group>"; };
 		E668D1E51AAF85890043A4ED /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TableView.strings; sourceTree = "<group>"; };
+		E668D1E61AAF87150043A4ED /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TableView.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +285,7 @@
 			children = (
 				E668D1E31AAF85690043A4ED /* Base */,
 				E668D1E51AAF85890043A4ED /* pt */,
+				E668D1E61AAF87150043A4ED /* fr */,
 			);
 			name = TableView.xib;
 			sourceTree = "<group>";

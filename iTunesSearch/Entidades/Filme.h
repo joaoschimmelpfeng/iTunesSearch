@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *artista;
 @property (nonatomic, strong) NSNumber *duracao;
 @property (nonatomic, strong) NSString *genero;
+@property (nonatomic, strong) NSNumber *preco;
 @property (nonatomic, strong) NSString *pais;
 @property (nonatomic, strong) NSString *artWork;
 
