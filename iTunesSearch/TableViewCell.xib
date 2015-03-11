@@ -22,6 +22,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XeK-vB-Xgh">
                         <rect key="frame" x="8" y="8" width="80" height="50"/>
+                        <color key="backgroundColor" red="0.3216403934" green="0.43841890360000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="8P1-z3-nRS"/>
                             <constraint firstAttribute="width" constant="80" id="es1-kx-KLQ"/>

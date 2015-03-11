@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 - (IBAction)clicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar1;
+@property NSMutableArray *categorias;
 
 @end
 

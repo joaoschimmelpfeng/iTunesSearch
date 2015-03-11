@@ -9,7 +9,7 @@
 #import "TableViewCell.h"
 
 @implementation TableViewCell
-@synthesize imageView;
+@synthesize imgView;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -25,7 +25,8 @@
 -(void) setViewTumb:(NSString *)url
 {
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: url]];
-    [imageView setImage:[UIImage imageWithData:imageData]];
+    UIImage *image = [[UIImage alloc] initWithData:imageData];
+    imgView.image = image;
 }
 
 @end

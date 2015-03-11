@@ -14,12 +14,14 @@
 
 @interface TableViewController () {
     NSArray *midias;
+    
 }
 
 @end
 
 @implementation TableViewController
-@synthesize searchBar1;
+@synthesize searchBar1,categorias;
+
 iTunesManager *itunes;
 
 - (void)viewDidLoad {
@@ -30,9 +32,9 @@ iTunesManager *itunes;
     
     [searchBar1 setDelegate:self];
     
-    itunes = [iTunesManager sharedInstance];
-    midias = [itunes buscarMidias:@"Alien"];
+    categorias = [[NSMutableArray alloc] init];
     
+    itunes = [iTunesManager sharedInstance];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +45,7 @@ iTunesManager *itunes;
 
 #pragma mark - Metodos do UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [categorias count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -66,7 +68,26 @@ iTunesManager *itunes;
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     midias = [itunes buscarMidias:searchBar.text];
+    Filme *f = [midias objectAtIndex:0];
+    [categorias addObject:f.tipo];
+    
+    for(int i = 1; i < midias.count;i++)
+    {
+        Filme *filme = [midias objectAtIndex:i];
+        for(int j = 0; j < categorias.count; j++)
+        {
+            if([filme.tipo  isEqualToString:[categorias objectAtIndex:j]])
+            {
+                break;
+            }
+            else
+            {
+                [categorias addObject:filme.tipo];
+            }
+        }
+    }
     [self.tableview reloadData];
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,7 +96,6 @@ iTunesManager *itunes;
 
 - (IBAction)clicked:(id)sender
 {
-    midias = [itunes buscarMidias:searchBar1.text];
-    [self.tableview reloadData];
+    [self searchBarSearchButtonClicked:searchBar1];
 }
 @end
