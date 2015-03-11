@@ -20,19 +20,18 @@
 @end
 
 @implementation TableViewController
-@synthesize searchBar1,categorias;
+@synthesize searchBar1;
 
 iTunesManager *itunes;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
     [searchBar1 setDelegate:self];
-    
-    categorias = [[NSMutableArray alloc] init];
     
     itunes = [iTunesManager sharedInstance];
 }
@@ -45,17 +44,28 @@ iTunesManager *itunes;
 
 #pragma mark - Metodos do UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [categorias count];
+    return [midias count];
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [midias count];
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSLog(@"Tempo : %lu",section);
+    return [[midias objectAtIndex:section] count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell *celula = [self.tableview dequeueReusableCellWithIdentifier:@"celulaPadrao"];
     
-    Filme *filme = [midias objectAtIndex:indexPath.row];
+    Filme *filme;
+    
+    if(indexPath.section == 0)
+    {
+     filme = [[midias objectAtIndex:0] objectAtIndex:indexPath.row];
+    }
+    else
+    {
+     filme = [[midias objectAtIndex:1] objectAtIndex:indexPath.row];
+    }
     
     [celula.nome setText:filme.nome];
     [celula.preco setText:[filme.preco stringValue]];
@@ -65,27 +75,18 @@ iTunesManager *itunes;
     return celula;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    Filme *f = [[midias objectAtIndex:section] objectAtIndex:0];
+    sectionName = NSLocalizedString(f.tipo, nil);
+    
+    return sectionName;
+}
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     midias = [itunes buscarMidias:searchBar.text];
-    Filme *f = [midias objectAtIndex:0];
-    [categorias addObject:f.tipo];
-    
-    for(int i = 1; i < midias.count;i++)
-    {
-        Filme *filme = [midias objectAtIndex:i];
-        for(int j = 0; j < categorias.count; j++)
-        {
-            if([filme.tipo  isEqualToString:[categorias objectAtIndex:j]])
-            {
-                break;
-            }
-            else
-            {
-                [categorias addObject:filme.tipo];
-            }
-        }
-    }
     [self.tableview reloadData];
     
 }

@@ -25,10 +25,17 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
 
+    
+    
 #warning Adicionado codigo para iniciar com a interface do TableView
 //    TableViewController *tvc = [[TableViewController alloc] initWithNibName:@"TableView" bundle:nil];
     TableViewController *tvc = [[TableViewController alloc] init];
-    [self.window setRootViewController:tvc];
+    
+    UINavigationController *tableViewNavigationController = [[UINavigationController alloc] initWithRootViewController:tvc];
+    
+    [tableViewNavigationController setTitle:@"MeuApp"];
+    
+    [self.window setRootViewController:tableViewNavigationController];
     [self.window makeKeyAndVisible];
     return YES;
 }

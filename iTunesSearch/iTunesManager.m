@@ -30,6 +30,8 @@ static bool isFirstAccess = YES;
 
 
 - (NSArray *)buscarMidias:(NSString *)termo {
+    
+    
     if (!termo) {
         termo = @"";
     }
@@ -47,8 +49,9 @@ static bool isFirstAccess = YES;
     }
     
     NSArray *resultados = [resultado objectForKey:@"results"];
+    NSMutableArray *final = [[NSMutableArray alloc]init];
     NSMutableArray *filmes = [[NSMutableArray alloc] init];
-    
+    NSMutableArray *musicas = [[NSMutableArray alloc] init];
     for (NSDictionary *item in resultados) {
         Filme *filme = [[Filme alloc] init];
         [filme setNome:[item objectForKey:@"trackName"]];
@@ -61,10 +64,31 @@ static bool isFirstAccess = YES;
         [filme setPais:[item objectForKey:@"country"]];
         [filme setTipo:[item objectForKey:@"kind"]];
         
-        [filmes addObject:filme];
+        
+        NSString *expression = @"movie|song";
+        NSRegularExpression *ex = [NSRegularExpression regularExpressionWithPattern:expression options:0 error:NULL];
+        
+        
+        
+        NSRange range = NSMakeRange(0, [filme.tipo length]);
+        
+        NSTextCheckingResult *match = [ex firstMatchInString:filme.tipo options:0 range:range];
+        NSString *result = [filme.tipo substringWithRange:[match rangeAtIndex:0]];
+        
+        if([result isEqualToString:@"movie"])
+        {
+         [filme setTipo:result];
+         [filmes addObject:filme];
+        }
+        else if([result isEqualToString:@"song"])
+        {
+         [filme setTipo:result];
+         [musicas addObject:filme];
+        }
     }
-    
-    return filmes;
+    [final addObject:filmes];
+    [final addObject:musicas];
+    return final;
 }
 
 
