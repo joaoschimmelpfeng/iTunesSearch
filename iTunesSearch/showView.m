@@ -7,23 +7,43 @@
 //
 
 #import "showView.h"
+#import "Midia.h"
 
 @interface showView ()
 
 @end
 
 @implementation showView
-
+@synthesize media,imageView,titulo,artista,preco,genero;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    artista.text = media.artista;
+    titulo.text = media.nome;
+    preco.text = [media.preco stringValue];
+    genero.text = media.genero;
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: media.artWork]];
+    UIImage *image = [[UIImage alloc] initWithData:imageData];
+    imageView.image = image;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
++ (showView *)instance
+{
+    static showView *sharedContador = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^
+                  {
+                      sharedContador = [[self alloc] init];
+                  });
+    return sharedContador;
+}
 /*
 #pragma mark - Navigation
 

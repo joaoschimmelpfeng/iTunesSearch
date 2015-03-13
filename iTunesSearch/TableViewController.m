@@ -9,8 +9,9 @@
 #import "TableViewController.h"
 #import "TableViewCell.h"
 #import "iTunesManager.h"
-#import "Entidades/Filme.h"
+#import "Entidades/Midia.h"
 #import "SearchView.h"
+#import "showView.h"
 
 @interface TableViewController () {
     NSArray *midias;
@@ -36,36 +37,28 @@ iTunesManager *itunes;
     itunes = [iTunesManager sharedInstance];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
 #pragma mark - Metodos do UITableViewDataSource
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return [midias count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"Tempo : %lu",section);
     return [[midias objectAtIndex:section] count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell *celula = [self.tableview dequeueReusableCellWithIdentifier:@"celulaPadrao"];
     
-    Filme *filme;
-    
-    if(indexPath.section == 0)
-    {
-     filme = [[midias objectAtIndex:0] objectAtIndex:indexPath.row];
-    }
-    else
-    {
-     filme = [[midias objectAtIndex:1] objectAtIndex:indexPath.row];
-    }
+    Midia *filme;
+     filme = [[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
     [celula.nome setText:filme.nome];
     [celula.preco setText:[filme.preco stringValue]];
@@ -78,7 +71,7 @@ iTunesManager *itunes;
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *sectionName;
-    Filme *f = [[midias objectAtIndex:section] objectAtIndex:0];
+    Midia *f = [[midias objectAtIndex:section] objectAtIndex:0];
     sectionName = NSLocalizedString(f.tipo, nil);
     
     return sectionName;
@@ -88,11 +81,21 @@ iTunesManager *itunes;
 {
     midias = [itunes buscarMidias:searchBar.text];
     [self.tableview reloadData];
-    
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return 70;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    showView *sview = [showView instance];
+    Midia *f = [[midias objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    sview.media = f;
+    [self.navigationController pushViewController:sview animated:YES];
+    
+    
 }
 
 - (IBAction)clicked:(id)sender

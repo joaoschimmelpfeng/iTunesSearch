@@ -7,7 +7,7 @@
 //
 
 #import "iTunesManager.h"
-#import "Entidades/Filme.h"
+#import "Entidades/Midia.h"
 
 @implementation iTunesManager
 
@@ -30,13 +30,46 @@ static bool isFirstAccess = YES;
 
 
 - (NSArray *)buscarMidias:(NSString *)termo {
-    
+    NSString *mediaTo = @"all";
     
     if (!termo) {
         termo = @"";
     }
     
-    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&media=all", termo];
+    termo = [termo stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    
+    NSString *expressao = @"(-music-)|(-movie-)";
+    NSRegularExpression *ex1 = [NSRegularExpression regularExpressionWithPattern:expressao options:0 error:NULL];
+    
+    
+    NSRange range1 = NSMakeRange(0, [termo length]);
+    
+    NSTextCheckingResult *match1 = [ex1 firstMatchInString:termo options:0 range:range1];
+   
+    
+    
+    NSString *result = [termo substringWithRange:[match1 rangeAtIndex:0]];
+    
+    
+    NSLog(@"%@",result);
+    
+    if(match1 != nil)
+    {
+     if([result isEqualToString:@"-music-"])
+     {
+      mediaTo = @"music";
+     }
+     else if([result isEqualToString:@"-movie-"])
+     {
+      mediaTo = @"movie";
+     }
+    
+     
+    }
+    
+    
+    
+    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&media=%@", termo,mediaTo];
     NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
     
     NSError *error;
@@ -49,11 +82,13 @@ static bool isFirstAccess = YES;
     }
     
     NSArray *resultados = [resultado objectForKey:@"results"];
+    
     NSMutableArray *final = [[NSMutableArray alloc]init];
     NSMutableArray *filmes = [[NSMutableArray alloc] init];
     NSMutableArray *musicas = [[NSMutableArray alloc] init];
+    
     for (NSDictionary *item in resultados) {
-        Filme *filme = [[Filme alloc] init];
+        Midia *filme = [[Midia alloc] init];
         [filme setNome:[item objectForKey:@"trackName"]];
         [filme setTrackId:[item objectForKey:@"trackId"]];
         [filme setArtista:[item objectForKey:@"artistName"]];
@@ -65,29 +100,27 @@ static bool isFirstAccess = YES;
         [filme setTipo:[item objectForKey:@"kind"]];
         
         
-        NSString *expression = @"movie|song";
-        NSRegularExpression *ex = [NSRegularExpression regularExpressionWithPattern:expression options:0 error:NULL];
         
         
-        
-        NSRange range = NSMakeRange(0, [filme.tipo length]);
-        
-        NSTextCheckingResult *match = [ex firstMatchInString:filme.tipo options:0 range:range];
-        NSString *result = [filme.tipo substringWithRange:[match rangeAtIndex:0]];
-        
-        if([result isEqualToString:@"movie"])
+        if([filme.tipo isEqualToString:@"feature-movie"])
         {
-         [filme setTipo:result];
+         [filme setTipo:@"movie"];
          [filmes addObject:filme];
         }
-        else if([result isEqualToString:@"song"])
+        else if([filme.tipo isEqualToString:@"song"])
         {
-         [filme setTipo:result];
          [musicas addObject:filme];
         }
     }
-    [final addObject:filmes];
-    [final addObject:musicas];
+    
+    if([filmes count] != 0)
+    {
+     [final addObject:filmes];
+    }
+    if([musicas count] != 0)
+    {
+     [final addObject:musicas];
+    }
     return final;
 }
 
