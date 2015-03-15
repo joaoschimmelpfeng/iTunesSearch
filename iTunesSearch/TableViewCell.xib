@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,7 +17,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nome da Mídia" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIA-JU-luV">
                         <rect key="frame" x="96" y="8" width="204" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XeK-vB-Xgh">
@@ -45,16 +45,26 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Preço" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoN-Cb-xDG">
                         <rect key="frame" x="219" y="32" width="73" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Imusic" translatesAutoresizingMaskIntoConstraints="NO" id="pId-A4-tQh">
+                        <rect key="frame" x="267" y="37" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="4qG-Lp-7dv"/>
+                            <constraint firstAttribute="height" constant="25" id="npk-Bx-kZT"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="6Z5-yj-wnl" secondAttribute="trailing" id="20H-3b-RZ8"/>
                     <constraint firstItem="6Z5-yj-wnl" firstAttribute="leading" secondItem="XeK-vB-Xgh" secondAttribute="trailing" constant="8" id="2cd-jQ-zTZ"/>
                     <constraint firstItem="VoN-Cb-xDG" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="5MI-Lc-DY5"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="UIA-JU-luV" secondAttribute="trailing" id="5u0-C3-Zay"/>
+                    <constraint firstItem="pId-A4-tQh" firstAttribute="top" secondItem="UIA-JU-luV" secondAttribute="bottom" constant="8" id="6wM-ue-GJv"/>
                     <constraint firstAttribute="trailingMargin" secondItem="6Z5-yj-wnl" secondAttribute="trailing" id="79B-Q0-KmA"/>
                     <constraint firstItem="VoN-Cb-xDG" firstAttribute="top" secondItem="UIA-JU-luV" secondAttribute="bottom" constant="3" id="7zD-pR-Ozy"/>
+                    <constraint firstItem="pId-A4-tQh" firstAttribute="leading" secondItem="UIA-JU-luV" secondAttribute="trailing" constant="2" id="8pe-yU-rNy"/>
                     <constraint firstItem="6Z5-yj-wnl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="96O-aR-ps1"/>
                     <constraint firstItem="XeK-vB-Xgh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="9is-RQ-QwR"/>
                     <constraint firstItem="6Z5-yj-wnl" firstAttribute="top" secondItem="UIA-JU-luV" secondAttribute="bottom" constant="3" id="CEN-JI-2ZB"/>
@@ -72,11 +82,15 @@
                     <constraint firstItem="UIA-JU-luV" firstAttribute="leading" secondItem="XeK-vB-Xgh" secondAttribute="trailing" constant="8" id="bCg-EP-cZF"/>
                     <constraint firstItem="6Z5-yj-wnl" firstAttribute="top" secondItem="UIA-JU-luV" secondAttribute="bottom" constant="6" id="bWa-Wc-rjG"/>
                     <constraint firstAttribute="trailingMargin" secondItem="UIA-JU-luV" secondAttribute="trailing" id="cTH-Nq-14q"/>
+                    <constraint firstItem="pId-A4-tQh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="cin-9x-RRn"/>
                     <constraint firstItem="XeK-vB-Xgh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="eQt-Rr-h3K"/>
                     <constraint firstAttribute="bottomMargin" secondItem="VoN-Cb-xDG" secondAttribute="bottom" constant="1" id="ecJ-9s-PVw"/>
+                    <constraint firstItem="pId-A4-tQh" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="eut-Lc-bJG"/>
                     <constraint firstItem="VoN-Cb-xDG" firstAttribute="leading" secondItem="6Z5-yj-wnl" secondAttribute="trailing" constant="23" id="kRf-QF-utF"/>
                     <constraint firstItem="UIA-JU-luV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="kiR-2R-sQf"/>
                     <constraint firstItem="6Z5-yj-wnl" firstAttribute="leading" secondItem="XeK-vB-Xgh" secondAttribute="trailing" constant="8" id="oIa-Zy-gjp"/>
+                    <constraint firstItem="pId-A4-tQh" firstAttribute="leading" secondItem="6Z5-yj-wnl" secondAttribute="trailing" constant="71" id="oKe-Ol-lCK"/>
+                    <constraint firstItem="pId-A4-tQh" firstAttribute="top" secondItem="UIA-JU-luV" secondAttribute="bottom" constant="16" id="rsY-i8-nJD"/>
                     <constraint firstItem="6Z5-yj-wnl" firstAttribute="top" secondItem="UIA-JU-luV" secondAttribute="bottom" constant="5" id="tJH-0d-wda"/>
                     <constraint firstAttribute="bottomMargin" secondItem="XeK-vB-Xgh" secondAttribute="bottom" constant="2" id="z4D-bM-LjE"/>
                 </constraints>
@@ -86,6 +100,7 @@
                         <exclude reference="HoP-0h-K2y"/>
                         <exclude reference="J7C-IX-tYj"/>
                         <exclude reference="z4D-bM-LjE"/>
+                        <exclude reference="Dqt-AY-x6f"/>
                         <exclude reference="Q1V-YW-Wh5"/>
                         <exclude reference="Vmi-wu-ZTl"/>
                         <exclude reference="YdC-rX-aV6"/>
@@ -100,10 +115,15 @@
                         <exclude reference="oIa-Zy-gjp"/>
                         <exclude reference="tJH-0d-wda"/>
                         <exclude reference="U1B-ho-9nI"/>
+                        <exclude reference="8pe-yU-rNy"/>
+                        <exclude reference="cin-9x-RRn"/>
+                        <exclude reference="eut-Lc-bJG"/>
+                        <exclude reference="rsY-i8-nJD"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="imageIcon" destination="pId-A4-tQh" id="d78-N6-seo"/>
                 <outlet property="imgView" destination="XeK-vB-Xgh" id="27I-op-hO1"/>
                 <outlet property="nome" destination="UIA-JU-luV" id="ubX-WX-gam"/>
                 <outlet property="preco" destination="VoN-Cb-xDG" id="lcI-lg-mdR"/>
@@ -112,4 +132,7 @@
             <point key="canvasLocation" x="577" y="87"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Imusic" width="512" height="512"/>
+    </resources>
 </document>

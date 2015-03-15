@@ -13,8 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *nome;
 @property (weak, nonatomic) IBOutlet UILabel *tipo;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageIcon;
 @property (weak, nonatomic) IBOutlet UILabel *preco;
 
 -(void) setViewTumb:(NSString *)url;
-
+-(void) setImgIcon:(NSString *)tipo;
 @end

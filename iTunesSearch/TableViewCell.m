@@ -9,7 +9,7 @@
 #import "TableViewCell.h"
 
 @implementation TableViewCell
-@synthesize imgView;
+@synthesize imgView,imageIcon;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -26,7 +26,23 @@
 {
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: url]];
     UIImage *image = [[UIImage alloc] initWithData:imageData];
+
     imgView.image = image;
+}
+
+
+-(void) setImgIcon:(NSString *)tipo
+{
+ if([tipo isEqualToString:@"movie"])
+ {
+     UIImage *img = [UIImage imageNamed:@"Ifilme"];
+     imageIcon.image = img;
+ }
+ else if([tipo isEqualToString:@"song"])
+ {
+  UIImage *img = [UIImage imageNamed:@"Imusic"];
+  imageIcon.image = img;
+ }
 }
 
 @end

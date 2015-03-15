@@ -70,6 +70,7 @@ iTunesManager *itunes;
     [celula.preco setText:[filme.preco stringValue]];
     [celula.tipo setText:NSLocalizedString(filme.tipo, nil)];
     [celula setViewTumb:filme.artWork];
+    [celula setImgIcon:filme.tipo];
     
     return celula;
 }
