@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Filme : NSObject
+@interface Midia : NSObject
 
 @property (nonatomic, strong) NSString *nome;
 @property (nonatomic, strong) NSString *trackId;

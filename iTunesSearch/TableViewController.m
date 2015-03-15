@@ -33,6 +33,12 @@ iTunesManager *itunes;
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
     [searchBar1 setDelegate:self];
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSString *lastSearch = [def objectForKey:@"search"];
+    if(lastSearch != NULL)
+    {
+        searchBar1.text = lastSearch;
+    }
     
     itunes = [iTunesManager sharedInstance];
 }

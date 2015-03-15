@@ -32,9 +32,13 @@ static bool isFirstAccess = YES;
 - (NSArray *)buscarMidias:(NSString *)termo {
     NSString *mediaTo = @"all";
     
-    if (!termo) {
+    if (!termo)
+    {
         termo = @"";
     }
+    NSUserDefaults *defaults = [NSUserDefaults  standardUserDefaults];
+    [defaults setObject:termo forKey:@"search"];
+    [defaults synchronize];
     
     termo = [termo stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     
